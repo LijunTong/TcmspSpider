@@ -1,15 +1,16 @@
 using HtmlAgilityPack;
 using Jt.Common.Tool.Extension;
 using System.Net.Http;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 
 namespace Tcmsp
 {
-    public partial class Form1 : Form
+    public partial class MainFrm : Form
     {
         HttpClient httpClient;
 
-        public Form1()
+        public MainFrm()
         {
             httpClient = new HttpClient();
             InitializeComponent();
@@ -43,12 +44,10 @@ namespace Tcmsp
                 foreach (var item in titleNodes)
                 {
                     var subNodes = item.SelectNodes("script");
-                    if (subNodes != null)
+                    foreach (var subItem in subNodes)
                     {
-                        var js = subNodes[0].f.InnerText;
-                        Console.WriteLine(js);
+                        Console.WriteLine(subItem.InnerHtml);
                     }
-
                 }
             }
 

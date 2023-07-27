@@ -1,6 +1,6 @@
 ﻿namespace Tcmsp
 {
-    partial class Form1
+    partial class MainFrm
     {
         /// <summary>
         ///  Required designer variable.
