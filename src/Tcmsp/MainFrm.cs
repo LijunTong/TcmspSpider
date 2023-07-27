@@ -38,17 +38,10 @@ namespace Tcmsp
             //初始化文档
             HtmlDocument doc = webClient.Load(url);
             //查找节点
-            HtmlNodeCollection titleNodes = doc.DocumentNode.SelectNodes("//div[@id='kendoResult']");
-            if (titleNodes != null)
+            HtmlNode node = doc.DocumentNode.SelectSingleNode("//div[@id='grid']");
+            if (node != null)
             {
-                foreach (var item in titleNodes)
-                {
-                    var subNodes = item.SelectNodes("script");
-                    foreach (var subItem in subNodes)
-                    {
-                        Console.WriteLine(subItem.InnerHtml);
-                    }
-                }
+                
             }
 
 
