@@ -40,27 +40,27 @@
             label3 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            statusStrip1 = new StatusStrip();
             dgvIng = new DataGridView();
+            statusStrip1 = new StatusStrip();
             tssIng = new ToolStripStatusLabel();
+            tabPage2 = new TabPage();
+            dgvTarget = new DataGridView();
             statusStrip2 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             tssTarget = new ToolStripStatusLabel();
-            dgvTarget = new DataGridView();
             groupBox1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvIng).BeginInit();
-            statusStrip2.SuspendLayout();
+            statusStrip1.SuspendLayout();
+            tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTarget).BeginInit();
+            statusStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // tbName
             // 
-            tbName.Location = new Point(91, 29);
+            tbName.Location = new Point(103, 50);
             tbName.Name = "tbName";
             tbName.Size = new Size(318, 23);
             tbName.TabIndex = 0;
@@ -69,7 +69,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(42, 32);
+            label1.Location = new Point(54, 53);
             label1.Name = "label1";
             label1.Size = new Size(32, 17);
             label1.TabIndex = 1;
@@ -77,7 +77,7 @@
             // 
             // btnGet
             // 
-            btnGet.Location = new Point(425, 32);
+            btnGet.Location = new Point(437, 51);
             btnGet.Name = "btnGet";
             btnGet.Size = new Size(75, 23);
             btnGet.TabIndex = 2;
@@ -87,16 +87,16 @@
             // 
             // tbToken
             // 
-            tbToken.Location = new Point(91, 0);
+            tbToken.Location = new Point(103, 21);
             tbToken.Name = "tbToken";
             tbToken.Size = new Size(318, 23);
             tbToken.TabIndex = 3;
-            tbToken.Text = "0cb50f37451907bc1e9ebebea970fc23";
+            tbToken.Text = "93032b3fd6e9f3c12b74007fe1b19f8a";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(42, 3);
+            label2.Location = new Point(54, 24);
             label2.Name = "label2";
             label2.Size = new Size(41, 17);
             label2.TabIndex = 4;
@@ -108,7 +108,7 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(tbObVal);
             groupBox1.Controls.Add(label3);
-            groupBox1.Location = new Point(42, 68);
+            groupBox1.Location = new Point(728, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(367, 145);
             groupBox1.TabIndex = 5;
@@ -153,10 +153,11 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(21, 232);
+            tabControl1.Dock = DockStyle.Bottom;
+            tabControl1.Location = new Point(0, 163);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1074, 529);
+            tabControl1.Size = new Size(1107, 610);
             tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -166,31 +167,10 @@
             tabPage1.Location = new Point(4, 26);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1066, 499);
+            tabPage1.Size = new Size(1099, 580);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Ingredients";
             tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Controls.Add(dgvTarget);
-            tabPage2.Controls.Add(statusStrip2);
-            tabPage2.Location = new Point(4, 26);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1066, 499);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Related Targets";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // statusStrip1
-            // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { tssIng });
-            statusStrip1.Location = new Point(3, 474);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(1060, 22);
-            statusStrip1.TabIndex = 1;
-            statusStrip1.Text = "statusStrip1";
             // 
             // dgvIng
             // 
@@ -203,32 +183,34 @@
             dgvIng.Name = "dgvIng";
             dgvIng.ReadOnly = true;
             dgvIng.RowTemplate.Height = 25;
-            dgvIng.Size = new Size(1060, 471);
+            dgvIng.Size = new Size(1093, 552);
             dgvIng.TabIndex = 2;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { tssIng });
+            statusStrip1.Location = new Point(3, 555);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(1093, 22);
+            statusStrip1.TabIndex = 1;
+            statusStrip1.Text = "statusStrip1";
             // 
             // tssIng
             // 
             tssIng.Name = "tssIng";
             tssIng.Size = new Size(0, 17);
             // 
-            // statusStrip2
+            // tabPage2
             // 
-            statusStrip2.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, tssTarget });
-            statusStrip2.Location = new Point(3, 474);
-            statusStrip2.Name = "statusStrip2";
-            statusStrip2.Size = new Size(1060, 22);
-            statusStrip2.TabIndex = 2;
-            statusStrip2.Text = "statusStrip2";
-            // 
-            // toolStripStatusLabel1
-            // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(0, 17);
-            // 
-            // tssTarget
-            // 
-            tssTarget.Name = "tssTarget";
-            tssTarget.Size = new Size(0, 17);
+            tabPage2.Controls.Add(dgvTarget);
+            tabPage2.Controls.Add(statusStrip2);
+            tabPage2.Location = new Point(4, 26);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1099, 580);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Related Targets";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // dgvTarget
             // 
@@ -241,8 +223,27 @@
             dgvTarget.Name = "dgvTarget";
             dgvTarget.ReadOnly = true;
             dgvTarget.RowTemplate.Height = 25;
-            dgvTarget.Size = new Size(1060, 471);
+            dgvTarget.Size = new Size(1093, 552);
             dgvTarget.TabIndex = 3;
+            // 
+            // statusStrip2
+            // 
+            statusStrip2.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, tssTarget });
+            statusStrip2.Location = new Point(3, 555);
+            statusStrip2.Name = "statusStrip2";
+            statusStrip2.Size = new Size(1093, 22);
+            statusStrip2.TabIndex = 2;
+            statusStrip2.Text = "statusStrip2";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(0, 17);
+            // 
+            // tssTarget
+            // 
+            tssTarget.Name = "tssTarget";
+            tssTarget.Size = new Size(0, 17);
             // 
             // MainFrm
             // 
@@ -257,20 +258,21 @@
             Controls.Add(label1);
             Controls.Add(tbName);
             Name = "MainFrm";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Tcmsp";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvIng).EndInit();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvIng).EndInit();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvTarget).EndInit();
             statusStrip2.ResumeLayout(false);
             statusStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvTarget).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

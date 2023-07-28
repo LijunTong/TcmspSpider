@@ -51,6 +51,11 @@ namespace Tcmsp
                 this.Cursor = Cursors.WaitCursor;
 
                 var enName = GetEnName(this.tbName.Text, this.tbToken.Text);
+                if (enName.IsNullOrWhiteSpace())
+                {
+                    return;
+                }
+
                 var data = GetTargets(enName, this.tbToken.Text);
                 var ings = data.Ingredients.Where(x => x.ob >= obval && x.dl >= dlval).ToList();
                 var target = data.RelatedTargets.Where(x => ings.Any(o => o.molecule_ID == x.molecule_ID)).ToList();
@@ -77,23 +82,29 @@ namespace Tcmsp
             HtmlWeb webClient = new HtmlWeb();
             //初始化文档
             HtmlDocument doc = webClient.Load(url);
+            if (doc.Text.Contains("Error querying database"))
+            {
+                MessageBox.Show("请更换Token");
+                return "";
+            }
+
             //查找节点
             HtmlNode node = doc.DocumentNode.SelectSingleNode("//div[@id='grid']");
             if (node != null)
             {
-                    var subNodes = node.SelectNodes("script");
-                    if (subNodes != null && subNodes.Count > 0)
+                var subNodes = node.SelectNodes("script");
+                if (subNodes != null && subNodes.Count > 0)
+                {
+                    var text = subNodes[0].InnerHtml;
+                    Regex regex = new Regex(pattern1);
+                    var matchs = regex.Matches(text);
+                    foreach (var match in matchs)
                     {
-                        var text = subNodes[0].InnerHtml;
-                        Regex regex = new Regex(pattern1);
-                        var matchs = regex.Matches(text);
-                        foreach (var match in matchs)
-                        {
-                            Console.WriteLine(match.ToString());
-                            return match.ToString();
-                        }
+                        Console.WriteLine(match.ToString());
+                        return match.ToString();
                     }
-                
+                }
+
             }
             return "";
         }
