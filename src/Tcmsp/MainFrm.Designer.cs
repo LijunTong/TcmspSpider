@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
             tbName = new TextBox();
             label1 = new Label();
             btnGet = new Button();
@@ -257,6 +258,7 @@
             Controls.Add(btnGet);
             Controls.Add(label1);
             Controls.Add(tbName);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainFrm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tcmsp";
