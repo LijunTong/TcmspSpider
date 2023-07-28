@@ -89,7 +89,7 @@ namespace Tcmsp
             }
 
             //²éÕÒ½Úµã
-            HtmlNode node = doc.DocumentNode.SelectSingleNode("//div[@id='grid']");
+            HtmlNode node = doc.DocumentNode.SelectSingleNode("//div[@id='kendoResult']");
             if (node != null)
             {
                 var subNodes = node.SelectNodes("script");
