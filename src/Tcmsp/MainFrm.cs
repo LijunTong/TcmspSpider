@@ -81,9 +81,7 @@ namespace Tcmsp
             HtmlNode node = doc.DocumentNode.SelectSingleNode("//div[@id='grid']");
             if (node != null)
             {
-                foreach (var item in titleNodes)
-                {
-                    var subNodes = item.SelectNodes("script");
+                    var subNodes = node.SelectNodes("script");
                     if (subNodes != null && subNodes.Count > 0)
                     {
                         var text = subNodes[0].InnerHtml;
@@ -95,7 +93,7 @@ namespace Tcmsp
                             return match.ToString();
                         }
                     }
-                }
+                
             }
             return "";
         }
