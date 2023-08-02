@@ -4,7 +4,7 @@ using Microsoft.Playwright;
 using Domain.SpiderDomain;
 public class TcmspPlaywright
 {
-    public async Task<(List<Ingredients>, List<RelatedTargets>)> getIngredientsAndRequireds(string name)
+    public async Task<(List<Ingredients>, List<RelatedTargets>)> GetIngredientsAndRequireds(string name)
     {
         using var playwright = await Playwright.CreateAsync();
         await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
