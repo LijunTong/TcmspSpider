@@ -17,7 +17,7 @@ public class Ingredients
     public string MoleculeName { get; set; }
 
     [JsonProperty("ob")]
-    public string Ob { get; set; }
+    public decimal Ob { get; set; }
 
     [JsonProperty("mw")]
     public string Mw { get; set; }
@@ -41,7 +41,7 @@ public class Ingredients
     public string Hacc { get; set; }
 
     [JsonProperty("dl")]
-    public string Dl { get; set; }
+    public decimal Dl { get; set; }
 
     [JsonProperty("FASA")]
     public string Fasa { get; set; }
