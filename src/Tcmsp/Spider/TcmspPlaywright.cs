@@ -1,9 +1,10 @@
 ﻿namespace Tcmsp.Spider;
 using Newtonsoft.Json;
 using Microsoft.Playwright;
+using Domain.SpiderDomain;
 public class TcmspPlaywright
 {
-    public async Task<(List<Ingredients>, List<Required>)> getIngredientsAndRequireds(string name)
+    public async Task<(List<Ingredients>, List<RelatedTargets>)> getIngredientsAndRequireds(string name)
     {
         using var playwright = await Playwright.CreateAsync();
         await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
@@ -36,9 +37,9 @@ public class TcmspPlaywright
         var ingredientJson =
             await page.EvaluateAsync<string>("JSON.stringify($('#grid').data('kendoGrid').dataSource.data())");
         var ingredients = JsonConvert.DeserializeObject<List<Ingredients>>(ingredientJson);
-        var requiredJson =
+        var relatedTargetJson =
             await page.EvaluateAsync<string>("JSON.stringify($('#grid').data('kendoGrid').dataSource.data())");
-        var requireds = JsonConvert.DeserializeObject<List<Required>>(requiredJson);
-        return (ingredients, requireds);
+        var relatedTargets = JsonConvert.DeserializeObject<List<RelatedTargets>>(relatedTargetJson);
+        return (ingredients, relatedTargets);
     }
 }
