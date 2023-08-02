@@ -21,7 +21,7 @@ public class TcmspPlaywright
             "https://old.tcmsp-e.com/tcmspsearch.php");
         var searchInputSelector = "#inputVarTcm"; // 替换为搜索框的选择器
         var searchButtonSelector = "#searchBtTcm"; // 替换为搜索按钮的选择器
-        var searchValue = "陈皮"; // 替换为要搜索的值
+        var searchValue = name; // 替换为要搜索的值
         await page.FillAsync(searchInputSelector, searchValue);
         await page.ClickAsync(searchButtonSelector);
         // 等待页面跳转完成，指定加载状态为"domcontentloaded"，增加等待时间为60秒
