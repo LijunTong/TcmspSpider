@@ -38,8 +38,9 @@ public class TcmspPlaywright
             await page.EvaluateAsync<string>("JSON.stringify($('#grid').data('kendoGrid').dataSource.data())");
         var ingredients = JsonConvert.DeserializeObject<List<Ingredients>>(ingredientJson);
         var relatedTargetJson =
-            await page.EvaluateAsync<string>("JSON.stringify($('#grid').data('kendoGrid').dataSource.data())");
+            await page.EvaluateAsync<string>("JSON.stringify($('#grid2').data('kendoGrid').dataSource.data())");
         var relatedTargets = JsonConvert.DeserializeObject<List<RelatedTargets>>(relatedTargetJson);
+        await browser.CloseAsync();
         return (ingredients, relatedTargets);
     }
 }
