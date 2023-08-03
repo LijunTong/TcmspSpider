@@ -21,7 +21,7 @@ namespace Tcmsp.Core.Impl
             _httpClient = new HttpClient(clientHandler);
         }
 
-        public (List<Domain.SpiderDomain.Ingredients> Ingredients, List<Domain.SpiderDomain.RelatedTargets> RelatedTargets) GetIngredientsAndTargets(string name, decimal ob, decimal dl, string token = "")
+        public (List<Ingredients> Ingredients, List<RelatedTargets> RelatedTargets) GetIngredientsAndTargets(string name, decimal ob, decimal dl, string token = "")
         {
             if (token.IsNullOrWhiteSpace())
             {
@@ -74,7 +74,7 @@ namespace Tcmsp.Core.Impl
             return "";
         }
 
-        private (List<Domain.SpiderDomain.Ingredients> Ingredients, List<Domain.SpiderDomain.RelatedTargets> RelatedTargets) GetTargets(string enName, string token)
+        private (List<Ingredients> Ingredients, List<RelatedTargets> RelatedTargets) GetTargets(string enName, string token)
         {
             string url = $"https://old.tcmsp-e.com/tcmspsearch.php?qr={enName}&qsr=herb_en_name&token={token}";
             string docText = _httpClient.GetAsync(url).Result.Content.ReadAsStringAsync().Result;

@@ -19,4 +19,8 @@
     <PackageReference Include="Microsoft.Playwright" Version="1.36.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Spider\" />
+  </ItemGroup>
+
 </Project>
