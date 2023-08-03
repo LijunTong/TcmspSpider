@@ -1,10 +1,6 @@
 ﻿using Microsoft.Playwright;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Tcmsp.Core.Interface;
 using Tcmsp.Domain.SpiderDomain;
 
