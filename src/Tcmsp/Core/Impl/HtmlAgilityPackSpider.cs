@@ -21,7 +21,7 @@ namespace Tcmsp.Core.Impl
             _httpClient = new HttpClient(clientHandler);
         }
 
-        public (List<Ingredients> Ingredients, List<RelatedTargets> RelatedTargets) GetIngredientsAndTargets(string name, decimal ob, decimal dl, string token = "")
+        public async Task<(List<Ingredients> Ingredients, List<RelatedTargets> RelatedTargets)> GetIngredientsAndTargets(string name, decimal ob, decimal dl, string token = "")
         {
             if (token.IsNullOrWhiteSpace())
             {
