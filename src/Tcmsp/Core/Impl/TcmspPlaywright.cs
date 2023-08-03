@@ -1,8 +1,9 @@
-﻿namespace Tcmsp.Spider;
+﻿using Tcmsp.Core.Interface;
+namespace Tcmsp.Spider;
 using Newtonsoft.Json;
 using Microsoft.Playwright;
 using Domain.SpiderDomain;
-public class TcmspPlaywright
+public class TcmspPlaywright : ISpider
 {
     public async Task<(List<Ingredients>, List<RelatedTargets>)> GetIngredientsAndRelatedTargets(string name)
     {
@@ -26,7 +27,7 @@ public class TcmspPlaywright
         await page.ClickAsync(searchButtonSelector);
         // 等待页面跳转完成，指定加载状态为"domcontentloaded"，增加等待时间为60秒
         await page.WaitForLoadStateAsync(LoadState.DOMContentLoaded, new PageWaitForLoadStateOptions { Timeout = 60000 });
-        
+
         // 点击链接
         await page.ClickAsync("td[role=gridcell]:nth-child(3) a");
 
@@ -42,5 +43,14 @@ public class TcmspPlaywright
         var relatedTargets = JsonConvert.DeserializeObject<List<RelatedTargets>>(relatedTargetJson);
         await browser.CloseAsync();
         return (ingredients, relatedTargets);
+    }
+
+    public (List<Ingredients> Ingredients, List<RelatedTargets> RelatedTargets) GetIngredientsAndTargets(string name, decimal ob, decimal dl, string token = "")
+    {
+        var ingredientsAndRelatedTargets = GetIngredientsAndRelatedTargets(name);
+        var (ingredientsList, relatedTargetsList) = ingredientsAndRelatedTargets.Result;
+        var ings = ingredientsList.Where(x => x.Ob >= ob && x.Dl >= dl).ToList();
+        var target = relatedTargetsList.Where(x => ings.Any(o => o.MoleculeID == x.MoleculeID)).ToList();
+        return (ings, target);
     }
 }

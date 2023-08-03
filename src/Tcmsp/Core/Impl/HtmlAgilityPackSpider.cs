@@ -2,7 +2,7 @@
 using Jt.Common.Tool.Extension;
 using System.Text.RegularExpressions;
 using Tcmsp.Core.Interface;
-using Tcmsp.Domian.SpiderDomain;
+using Tcmsp.Domain.SpiderDomain;
 using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 
 namespace Tcmsp.Core.Impl
