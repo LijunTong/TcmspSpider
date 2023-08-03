@@ -11,13 +11,12 @@ public class TcmspPlaywright : ISpider
     private async Task<(List<Ingredients>, List<RelatedTargets>)> GetIngredientsAndRelatedTargets(string name)
     {
         var filePath = Path.Combine(Application.StartupPath, "Config.json");
-        // 获取Config.json的token
         var configJson = JObject.Parse(await File.ReadAllTextAsync(filePath));
         using var playwright = await Playwright.CreateAsync();
         await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
         {
             Headless = true,
-            ExecutablePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" // Edge浏览器的安装路径
+            ExecutablePath = configJson["edgePath"]?.ToString()
         });
         var context = await browser.NewContextAsync(new BrowserNewContextOptions
         {
