@@ -13,9 +13,7 @@ public class TcmspHtmlAgility : ISpider
     private static HttpClient HttpClient;
     private readonly HtmlDocument _doc = new();
     private string _token;
-
     private const string TcmspBaseUrl = "https://old.tcmsp-e.com/tcmspsearch.php";
-    private const string TokenQueryParam = "token";
 
     public TcmspHtmlAgility()
     {
