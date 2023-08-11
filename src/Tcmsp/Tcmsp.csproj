@@ -20,10 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Spider\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
