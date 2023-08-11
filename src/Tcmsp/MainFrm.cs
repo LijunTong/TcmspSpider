@@ -10,7 +10,7 @@ namespace Tcmsp
         public MainFrm()
         {
             InitializeComponent();
-            _spider = new TcmspPlaywright();
+            _spider = new TcmspHtmlAgility();
         }
 
         private async void btnGet_Click(object sender, EventArgs e)
