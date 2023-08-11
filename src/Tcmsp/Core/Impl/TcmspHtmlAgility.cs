@@ -45,7 +45,10 @@ public class TcmspHtmlAgility : ISpider
         }
 
         await GetHerbEnName();
-        return await GetValue();
+        var (ingredients, relatedTargets) = await GetValue();
+        var ings = ingredients.Where(x => x.Ob >= ob && x.Dl >= dl).ToList();
+        var target = relatedTargets.Where(x => ings.Any(o => o.MoleculeID == x.MoleculeID)).ToList();
+        return (ings, target);
     }
 
     private async Task GetHerbEnName()
