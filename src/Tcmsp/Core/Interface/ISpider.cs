@@ -17,6 +17,6 @@ namespace Tcmsp.Core.Interface
         /// <param name="dl">dl</param>
         /// <param name="token">token</param>
         /// <returns></returns>
-        (List<Ingredients> Ingredients, List<RelatedTargets> RelatedTargets) GetIngredientsAndTargets(string name, decimal ob, decimal dl, string token = "");
+        Task<(List<Ingredients> Ingredients, List<RelatedTargets> RelatedTargets)> GetIngredientsAndTargets(string name, decimal ob, decimal dl, string token = "");
     }
 }

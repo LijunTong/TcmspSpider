@@ -10,10 +10,10 @@ namespace Tcmsp
         public MainFrm()
         {
             InitializeComponent();
-            _spider = new HtmlAgilityPackSpider();
+            _spider = new TcmspHtmlAgility();
         }
 
-        private void btnGet_Click(object sender, EventArgs e)
+        private async void btnGet_Click(object sender, EventArgs e)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Tcmsp
                 this.tssIng.Text = null;
                 this.tssTarget.Text = null;
 
-                var data = _spider.GetIngredientsAndTargets(this.tbName.Text, obval, dlval, this.tbToken.Text);
+                var data = await _spider.GetIngredientsAndTargets(this.tbName.Text, obval, dlval, this.tbToken.Text);
                 if (data.Ingredients == null)
                 {
                     MessageBox.Show("没获取到数据");
