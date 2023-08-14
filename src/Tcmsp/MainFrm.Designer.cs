@@ -32,8 +32,6 @@
             tbName = new TextBox();
             label1 = new Label();
             btnGet = new Button();
-            tbToken = new TextBox();
-            label2 = new Label();
             groupBox1 = new GroupBox();
             tbDlVal = new TextBox();
             label4 = new Label();
@@ -61,16 +59,17 @@
             // 
             // tbName
             // 
-            tbName.Location = new Point(103, 50);
+            tbName.Location = new Point(109, 27);
             tbName.Name = "tbName";
             tbName.Size = new Size(318, 23);
             tbName.TabIndex = 0;
             tbName.Text = "党参";
+            tbName.KeyDown += tbName_KeyDown;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(54, 53);
+            label1.Location = new Point(60, 30);
             label1.Name = "label1";
             label1.Size = new Size(32, 17);
             label1.TabIndex = 1;
@@ -78,7 +77,7 @@
             // 
             // btnGet
             // 
-            btnGet.Location = new Point(437, 51);
+            btnGet.Location = new Point(443, 28);
             btnGet.Name = "btnGet";
             btnGet.Size = new Size(75, 23);
             btnGet.TabIndex = 2;
@@ -86,39 +85,22 @@
             btnGet.UseVisualStyleBackColor = true;
             btnGet.Click += btnGet_Click;
             // 
-            // tbToken
-            // 
-            tbToken.Location = new Point(103, 21);
-            tbToken.Name = "tbToken";
-            tbToken.Size = new Size(318, 23);
-            tbToken.TabIndex = 3;
-            tbToken.Text = "93032b3fd6e9f3c12b74007fe1b19f8a";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(54, 24);
-            label2.Name = "label2";
-            label2.Size = new Size(41, 17);
-            label2.TabIndex = 4;
-            label2.Text = "token";
-            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(tbDlVal);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(tbObVal);
             groupBox1.Controls.Add(label3);
-            groupBox1.Location = new Point(728, 12);
+            groupBox1.Location = new Point(60, 72);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(367, 145);
+            groupBox1.Size = new Size(985, 91);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "筛选";
             // 
             // tbDlVal
             // 
-            tbDlVal.Location = new Point(23, 109);
+            tbDlVal.Location = new Point(435, 51);
             tbDlVal.Name = "tbDlVal";
             tbDlVal.Size = new Size(318, 23);
             tbDlVal.TabIndex = 5;
@@ -127,7 +109,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(23, 89);
+            label4.Location = new Point(435, 31);
             label4.Name = "label4";
             label4.Size = new Size(71, 17);
             label4.TabIndex = 4;
@@ -155,10 +137,10 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Dock = DockStyle.Bottom;
-            tabControl1.Location = new Point(0, 163);
+            tabControl1.Location = new Point(0, 179);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1107, 610);
+            tabControl1.Size = new Size(1107, 594);
             tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -168,7 +150,7 @@
             tabPage1.Location = new Point(4, 26);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1099, 580);
+            tabPage1.Size = new Size(1099, 564);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Ingredients";
             tabPage1.UseVisualStyleBackColor = true;
@@ -184,13 +166,13 @@
             dgvIng.Name = "dgvIng";
             dgvIng.ReadOnly = true;
             dgvIng.RowTemplate.Height = 25;
-            dgvIng.Size = new Size(1093, 552);
+            dgvIng.Size = new Size(1093, 536);
             dgvIng.TabIndex = 2;
             // 
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { tssIng });
-            statusStrip1.Location = new Point(3, 555);
+            statusStrip1.Location = new Point(3, 539);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(1093, 22);
             statusStrip1.TabIndex = 1;
@@ -253,8 +235,6 @@
             ClientSize = new Size(1107, 773);
             Controls.Add(tabControl1);
             Controls.Add(groupBox1);
-            Controls.Add(label2);
-            Controls.Add(tbToken);
             Controls.Add(btnGet);
             Controls.Add(label1);
             Controls.Add(tbName);
@@ -284,8 +264,6 @@
         private TextBox tbName;
         private Label label1;
         private Button btnGet;
-        private TextBox tbToken;
-        private Label label2;
         private GroupBox groupBox1;
         private TextBox tbObVal;
         private Label label3;

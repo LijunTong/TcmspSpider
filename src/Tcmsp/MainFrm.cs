@@ -17,12 +17,6 @@ namespace Tcmsp
         {
             try
             {
-                if (this.tbToken.Text.IsNullOrWhiteSpace())
-                {
-                    MessageBox.Show("请填写token");
-                    return;
-                }
-
                 if (this.tbName.Text.IsNullOrWhiteSpace())
                 {
                     MessageBox.Show("请填写名称");
@@ -46,7 +40,7 @@ namespace Tcmsp
                 this.tssIng.Text = null;
                 this.tssTarget.Text = null;
 
-                var data = await _spider.GetIngredientsAndTargets(this.tbName.Text, obval, dlval, this.tbToken.Text);
+                var data = await _spider.GetIngredientsAndTargets(this.tbName.Text, obval, dlval);
                 if (data.Ingredients == null)
                 {
                     MessageBox.Show("没获取到数据");
@@ -65,6 +59,14 @@ namespace Tcmsp
             finally
             {
                 this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnGet_Click(null, null);
             }
         }
     }
